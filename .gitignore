@@ -1,0 +1,10 @@
+pkg/
+api.key
+*-handin.tar.gz
+**/.idea
+
+**/*.*/
+**/mrtmp.*
+**/*.out
+**/*.txt
+**/*.so
