@@ -5,9 +5,10 @@ package mr
 //
 // remember to capitalize all names.
 //
-
-import "os"
-import "strconv"
+import (
+	"os"
+	"strconv"
+)
 
 //
 // example to show how to declare the arguments
@@ -22,9 +23,40 @@ type ExampleReply struct {
 	Y int
 }
 
+type TaskAssignArgs struct {
+	Name string
+}
+
+type TaskAssignReply struct {
+	HasTask         bool
+	JobStatus       JobStatus
+	MapTaskReply    MapTaskReply
+	ReduceTaskReply ReduceTaskReply
+}
+
+type MapTaskReply struct {
+	TaskNum int
+	Input   string
+	Output  []string
+	Worker  string
+	NReduce int
+}
+
+type ReduceTaskReply struct {
+	TaskNum int
+	Inputs  []string
+	Output  string
+	Worker  string
+}
+
+type TaskFinishArgs TaskAssignReply
+
+type TaskFinishReply struct {
+}
+
 // Add your RPC definitions here.
 
-// Cook up a unique-ish UNIX-domain socket name
+// Cook up a unique-ish UNIX-domain socket Name
 // in /var/tmp, for the master.
 // Can't use the current directory since
 // Athena AFS doesn't support UNIX-domain sockets.
