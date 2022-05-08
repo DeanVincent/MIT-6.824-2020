@@ -6,5 +6,5 @@ api.key
 **/*.*/
 **/mrtmp.*
 **/*.out
-**/*.txt
+**/*-out-*
 **/*.so
